@@ -1,5 +1,18 @@
 # DnD-Manager
+
 An electric character sheet manager app, with DM mode in Angular 1
+
+## Most welcomed Contributions
+
+Currently the following contributions are most needed:
+* Build process capeable of:
+  * Deploying to a static fileserver
+  * Using propety files for build properties
+  * Replacing placeholders in configuration files from build properties
+  * Watching file changes and running the current source on localhost
+  * Creating a build timestamp with the hash of the build properties file in the following format: Build yyyyMMddhhmmss-hash of the contents of build properties file
+  
+## About DnD-Manager
 
 Dungeons and Dragons is a great game of creativity and immagination, however it is mostly ruined by the tons of administrative tasks, like keeping you character sheet up to date, summing your stats like saves, attack, etc.
 This things can be easily automatized, no more searching for descriptions, feats, spells in 3-5 books, no more tearing on your character sheet from the extended eresing and rewriting of your hp, skills, etc.
