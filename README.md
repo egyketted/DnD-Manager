@@ -48,4 +48,8 @@ Planned versions:
   * Extended BE functionality
   * Automation of everithing that can be automated (I know it is quite vague but relese 2 is not planned for at least one or two years)
 
+## Currently planned entities and their relationships
+
+![entityRelations](https://github.com/egyketted/DnD-Manager/blob/master/entityRelationDiagram.jpg)
+
 Contributions are most welcomed, but will be subject to high standards (So that even I (a backend developer) can understand them :) )
