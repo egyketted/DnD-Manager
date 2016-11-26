@@ -1,0 +1,14 @@
+{
+	"players":[{
+		"id":1,
+		"name":"Jozsi"
+		}
+	],
+	"entities":["players", "attributes", "saves", "skills", "feats", "spells", "items"],
+	"attributes":[],
+	"saves":[],
+	"skills":[],
+	"feats":[],
+	"spells":[],
+	"items":[]
+}

@@ -1,0 +1,18 @@
+<div class="data-manager">
+    <div ng-class="editing ? 'hidden' : 'data-content-view'">
+    <ul>
+        <li ng-repeat="entity in entities" ng-click="refreshGrid(entity)">{{entity}}</li>
+    </ul>
+
+    <table class="data-grid">
+        <tr ng-repeat="element in gridData">
+            <td ng-repeat="field in element">{{field}}</td>
+            <td class="data-edit" ng-click="edit(element)">edit</td>
+            <td class="data-delete" ng-click="delete(element)">delete</td>
+        </tr>
+    </table>
+    </div>
+    <div ng-class="editing ? 'data-content-edit' : 'hidden'">
+        <>
+    </div>
+</div>
