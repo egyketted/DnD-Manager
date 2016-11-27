@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 		},
         buildnumber: {
             options: {
-                field: 'buildnum',
+                field: 'buildnum'
             },
             files: ['package.json']
         },
