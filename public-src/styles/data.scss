@@ -1,0 +1,36 @@
+.create-entity-toolbar {
+  text-align: center;
+
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.data-grid {
+  text-align: center;
+
+  .function {
+    width: 30px;
+    height: 30px;
+
+    .fa {
+      width: 20px;
+      height: 20px;
+
+      :hover {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    :hover {
+      cursor: pointer;
+
+      .fa {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

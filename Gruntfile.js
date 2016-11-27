@@ -114,7 +114,7 @@ module.exports = function (grunt) {
                 src: '**',
                 dest: '<%= config.dest %>/js',
                 expand: true
-            }
+            },
         },
         // change references for files prepared by usemin-pepare
         usemin: {

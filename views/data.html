@@ -1,18 +1,24 @@
 <div class="data-manager">
-    <div ng-class="editing ? 'hidden' : 'data-content-view'">
-    <ul>
-        <li ng-repeat="entity in entities" ng-click="refreshGrid(entity)">{{entity}}</li>
-    </ul>
+    <div class="data-content-view">
+        <ul>
+            <li ng-repeat="entity in entities" ng-click="refreshGrid(entity)">{{entity}}</li>
+        </ul>
+        <div ng-if="currentEntity">
+            <div class="create-entity-toolbar" ng-click="create()">
+                <i class="fa fa-plus-circle"></i>
+                <label>Add new {{currentEntity.substr(0, currentEntity.length - 1)}}</label>
+            </div>
 
-    <table class="data-grid">
-        <tr ng-repeat="element in gridData">
-            <td ng-repeat="field in element">{{field}}</td>
-            <td class="data-edit" ng-click="edit(element)">edit</td>
-            <td class="data-delete" ng-click="delete(element)">delete</td>
-        </tr>
-    </table>
+            <table class="data-grid col-sm-10">
+                <tr ng-repeat="element in gridData">
+                    <td class="element-data-field" ng-repeat="field in element">{{field}}</td>
+                    <td class="function edit" ng-click="edit(element)"><i class="fa fa-pencil"></i></td>
+                    <td class="function delete" ng-click="delete(element)"><i class="fa fa-trash"></i></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div ng-class="editing ? 'data-content-edit' : 'hidden'">
-        editing
+    <div class="data-content-edit" ng-if="editing">
+        <div ng-if="currentEntity" ng-include="'views/forms/' + currentEntity + '-form.html'"></div>
     </div>
 </div>

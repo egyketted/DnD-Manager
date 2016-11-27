@@ -1,14 +1,34 @@
 {
-	"players":[{
-		"id":1,
-		"name":"Jozsi"
-		}
-	],
-	"entities":["players", "attributes", "saves", "skills", "feats", "spells", "items"],
-	"attributes":[],
-	"saves":[],
-	"skills":[],
-	"feats":[],
-	"spells":[],
-	"items":[]
+  "players": [
+    {
+      "id": 1,
+      "name": "Jozsi"
+    }
+  ],
+  "entities": [
+    "players",
+    "attributes",
+    "saves",
+    "skills",
+    "feats",
+    "spells",
+    "items"
+  ],
+  "attributes": [],
+  "saves": [],
+  "skills": [
+    {
+      "name": "test skill 1",
+      "description": "sdaas",
+      "id": 1
+    },
+    {
+      "name": "test skill 2",
+      "description": "adfsda",
+      "id": 2
+    }
+  ],
+  "feats": [],
+  "spells": [],
+  "items": []
 }
