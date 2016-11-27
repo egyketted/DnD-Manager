@@ -4,6 +4,10 @@
   "version": "0.0.1 - ALPHA",
   "description": "It is a DnD manager",
   "author": "egyketted",
+  "scripts": {
+    "start": "node_modules/.bin/grunt ghost --color",
+    "build": "node_modules/.bin/grunt"
+  },
   "devDependencies": {
     "angular": "^1.5.8",
     "angular-ui-router": "^0.3.2",
