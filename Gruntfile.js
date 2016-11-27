@@ -1,9 +1,10 @@
-"use strict";
+'use strict';
 
 //  grunt is a module exporting a single function
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-build-number');
+    grunt.loadNpmTasks('grunt-browser-sync');
     //  shows detailed time information about tasks for optimizing build times
     require('time-grunt')(grunt);
 
@@ -120,6 +121,20 @@ module.exports = function (grunt) {
         usemin: {
             html: '<%= config.dest %>/index.html'                           //  path where grunt-contrib-copy has copied template file - references within
         },
+        browserSync: {
+            bsFiles: {
+                src : [
+                    'styles/**/*.css',
+                    'views/**/*.html',
+                    'js/**/*.js'
+                ]
+            },
+            options: {
+                server: {
+                    baseDir: "./"
+                }
+            }
+        },
         watch: {                                                            //  watch files for changes and run tasks
             index: {
                 files: [ '<%= config.src %>/*.html'],
@@ -168,7 +183,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('ghost', [
 		'main',
-		'watch'
+		'browserSync'
 	]);
 
     //	define default tasks to be run when calling 'grunt'
