@@ -8,6 +8,6 @@ gulp.task('clean', (cb) => {
         .pipe(clean());
 });
 
-gulp.task('build', gulpSequence('clean', ['sass', 'build:app', 'build:vendor', 'copy-html', 'copy-fonts', 'copy-package.json'], 'index.html'));
+gulp.task('build', gulpSequence('clean', 'increment-build-number', ['sass', 'build:app', 'build:vendor', 'copy-html', 'copy-fonts', 'copy-package.json'], 'index.html'));
 
 gulp.task('default', gulpSequence('clean', 'serve'));

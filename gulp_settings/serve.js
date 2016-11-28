@@ -15,11 +15,11 @@ const notify = require('gulp-notify');
 
 const onError = require('./error-handling').onError;
 
-const VENDORS = ['angular', 'angular-ui-router', 'bootstrap'];
+const VENDORS = ['angular', 'angular-ui-router'];
 
 const LAYOUT = require('../layout.json');
 
-gulp.task('serve', gulpSequence(['sass', 'build:app', 'build:vendor', 'copy-html', 'copy-fonts', 'copy-package.json'], 'index.html', 'watch'));
+gulp.task('serve', gulpSequence('increment-build-number', ['sass', 'build:app', 'build:vendor', 'copy-html', 'copy-fonts', 'copy-package.json'], 'index.html', 'watch'));
 
 gulp.task('build:vendor', (cb) => {
     const b = browserify({
@@ -105,17 +105,29 @@ gulp.task('copy-fonts', () => {
         .pipe(gulp.dest(`${LAYOUT.dest}/fonts`));
 });
 
+gulp.task('increment-build-number', (cb) => {
+    var packageJson = require('../package.json');
+    packageJson.buildnum = packageJson.buildnum += 1;
+
+    fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, '  '));
+
+    cb();
+});
+
 gulp.task('copy-package.json', () => {
     return gulp.src(`package.json`)
         .pipe(gulp.dest(`${LAYOUT.dest}`));
 });
 
 gulp.task('sass', () => {
-    return gulp.src([`${LAYOUT.source}/**/*.scss`, `${LAYOUT.source}/**/*.css`])
-        .pipe(plumber({ errorHandler: onError }))
-        .pipe(sass())
-        .pipe(gulp.dest(`${LAYOUT.dest}`))
-        .pipe(browserSync.stream());
+    return gulp.src([
+        `${LAYOUT.source}/**/*.scss`,
+        `${LAYOUT.source}/**/*.css`,
+        `node_modules/bootstrap/dist/css/bootstrap.min.css`])
+            .pipe(plumber({ errorHandler: onError }))
+            .pipe(sass())
+            .pipe(gulp.dest(`${LAYOUT.dest}`))
+            .pipe(browserSync.stream());
 });
 
 gulp.task('index.html', () => {
