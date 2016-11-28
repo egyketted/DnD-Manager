@@ -1,4 +1,5 @@
 'use strict';
+require('angular');
 
 angular.module('DnDManagerApp') .controller('dataCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
     $http.get('http://localhost:3000/entities').then(function(result) {

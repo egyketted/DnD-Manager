@@ -1,4 +1,5 @@
 'use strict';
+require('angular');
 
 angular.module('DnDManagerApp').controller('skillFormCtrl', ['$scope', '$http', 'baseResourceService', function($scope, $http, baseResourceService) {
     baseResourceService.resourceName = 'skills';
