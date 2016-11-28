@@ -1,6 +1,16 @@
 require('angular');
 
-angular.module('DnDManagerApp').factory('skillsResourceService', ['baseResourceService', function(baseResourceService) {
+var baseResourceService = require('../services/base-resource.service');
+
+const ID = 'skillsResourceService';
+
+module.exports = {
+    ID :ID
+};
+
+SkillsResourceService.$inject = [baseResourceService.ID];
+
+function SkillsResourceService(baseResourceService) {
     var resourceName = 'skills';
 
     var service = angular.copy(baseResourceService);
@@ -8,4 +18,4 @@ angular.module('DnDManagerApp').factory('skillsResourceService', ['baseResourceS
     service.resourceName = resourceName;
 
     return service;
-}]);
+}
