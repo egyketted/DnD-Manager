@@ -1,10 +1,8 @@
 'use strict';
 require('angular');
 
-angular.module('DnDManagerApp').factory('configurationService', function() {
-    var config = {};
+const CONFIG = {
+    backend: 'http://localhost:3000/'
+};
 
-    config.backend = 'http://localhost:3000/';
-
-    return config;
-});
+angular.module('DnDManagerApp').value('configuration', CONFIG);

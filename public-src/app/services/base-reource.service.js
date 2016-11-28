@@ -1,10 +1,10 @@
 'use strict';
 require('angular');
 
-angular.module('DnDManagerApp').factory('baseResourceService', ['configurationService', '$http', function(configurationService, $http) {
+angular.module('DnDManagerApp').factory('baseResourceService', ['configuration', '$http', function(configuration, $http) {
     var service = {};
 
-    service.baseUrl = configurationService.backend;
+    service.baseUrl = configuration.backend;
     service.resourceName = '';
 
     function makeHttpRequest(requestData, successCB, errorCB) {
