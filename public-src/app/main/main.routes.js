@@ -3,8 +3,7 @@
 var app = require('../app').appModule;
 var mainCtrl = require('./main.controller');
 
-app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
-		$locationProvider.html5Mode(true);
+app.config(['$stateProvider', function($stateProvider) {
 		$stateProvider.state('home', {
                 url: '/',
                 views: {
@@ -14,5 +13,4 @@ app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', functio
                     }
                 }
 		    });
-		$urlRouterProvider.otherwise('/');
 }]);

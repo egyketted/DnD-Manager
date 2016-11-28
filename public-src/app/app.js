@@ -2,6 +2,13 @@
 require('angular');
 require('angular-ui-router');
 
+var app = angular.module('DnDManagerApp', ['ui.router']);
+
 module.exports = {
-    appModule: angular.module('DnDManagerApp', ['ui.router'])
+    appModule: app
 };
+
+app.config(['$locationProvider', '$urlRouterProvider', function($locationProvider, $urlRouterProvider) {
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise('/');
+}]);
