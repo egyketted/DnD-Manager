@@ -15,10 +15,8 @@
 	</head>
 
 	<body>
-		<div ui-view="content" ng-app="DnDManagerApp">
-			<div  ng-controller="mainCtrl">
-				<div ng-include="'views/main.html'"></div>
-			</div>
+		<div ng-app="DnDManagerApp">
+            <div ui-view="content"></div>
 		</div>
 		<!-- inject:js -->
 		<!-- endinject -->
