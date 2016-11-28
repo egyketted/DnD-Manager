@@ -1,4 +1,6 @@
 'use strict';
+require('angular');
+require('angular-ui-router');
 
 angular.module('DnDManagerApp', ['ui.router'])
 	.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
