@@ -16,11 +16,4 @@ app.controller(ID, [
 			{ label: 'DM mode', state: 'dm-mode' },
 			{ label: 'Player mode', state: 'player-mode' }
 		];
-
-		$http.get('package.json').then(function(config) {
-			$scope.name = config.data.name;
-			$scope.version = config.data.version;
-			$scope.buildnum = config.data.buildnum;
-			console.log('loaded version info', config.data);
-		});
 }]);
