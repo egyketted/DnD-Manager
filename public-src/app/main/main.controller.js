@@ -8,12 +8,14 @@ module.exports = {
     ID: ID
 };
 
-app.controller(ID, [
-	'$state', '$scope', '$http', function($state, $scope, $http) {
-		console.log($state);
-		$scope.states = [
-			{ label: 'data', state: 'data'},
-			{ label: 'DM mode', state: 'dm-mode' },
-			{ label: 'Player mode', state: 'player-mode' }
-		];
-}]);
+MainController.$inject = ['$scope']
+
+function MainController($scope) {
+    $scope.states = [
+        { label: 'data', state: 'data'},
+        { label: 'DM mode', state: 'dm-mode' },
+        { label: 'Player mode', state: 'player-mode' }
+    ];
+}
+
+app.controller(ID, MainController);
