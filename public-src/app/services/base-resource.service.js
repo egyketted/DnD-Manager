@@ -1,7 +1,16 @@
 'use strict';
 require('angular');
 
-angular.module('DnDManagerApp').factory('baseResourceService', ['configuration', '$http', function(configuration, $http) {
+var app = require('../app').appModule;
+const ID = 'baseResourceService';
+
+module.exports = {
+    ID: ID
+};
+
+BaseResourceService.$inject = ['configuration', '$http'];
+
+function BaseResourceService(configuration, $http) {
     var service = {};
 
     service.baseUrl = configuration.backend;
@@ -54,4 +63,6 @@ angular.module('DnDManagerApp').factory('baseResourceService', ['configuration',
     };
 
     return service;
-}]);
+}
+
+app.factory(ID, BaseResourceService);
