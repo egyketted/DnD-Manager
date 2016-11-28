@@ -2,6 +2,17 @@
 
 An electric character sheet manager app, with DM mode in Angular 1
 
+## How To Run
+
+```
+npm install
+npm run gulp
+```
+
+Currently there is a little problem, the build process does not bundle together
+the vendor scripts at first, so you have to write in one of the application's javascript files and save it.
+Afterwards the application should be visible here: [http://localhost:3000](http://localhost:3000)
+
 ## Most welcomed Contributions
 
 Currently the following contributions are most needed:
