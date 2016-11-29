@@ -55,6 +55,7 @@ gulp.task('build:vendor', (cb) => {
 
 gulp.task('watch', () => {
     browserSync.init({
+        port: 4000,
         server: {
             baseDir: `${LAYOUT.dest}`
         }
