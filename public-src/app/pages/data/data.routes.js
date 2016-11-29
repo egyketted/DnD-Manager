@@ -3,7 +3,7 @@
 var app = require('../../app').appModule;
 var dataCtrl = require('./data.controller');
 
-app.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', function($stateProvider) {
 
     $stateProvider.state('data', {
         url: '/data',
