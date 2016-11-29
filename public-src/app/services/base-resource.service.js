@@ -1,10 +1,19 @@
 'use strict';
 require('angular');
 
-angular.module('DnDManagerApp').factory('baseResourceService', ['configurationService', '$http', function(configurationService, $http) {
+var app = require('../app').appModule;
+const ID = 'baseResourceService';
+
+module.exports = {
+    ID: ID
+};
+
+BaseResourceService.$inject = ['configuration', '$http'];
+
+function BaseResourceService(configuration, $http) {
     var service = {};
 
-    service.baseUrl = configurationService.backend;
+    service.baseUrl = configuration.backend;
     service.resourceName = '';
 
     function makeHttpRequest(requestData, successCB, errorCB) {
@@ -54,4 +63,6 @@ angular.module('DnDManagerApp').factory('baseResourceService', ['configurationSe
     };
 
     return service;
-}]);
+}
+
+app.factory(ID, BaseResourceService);

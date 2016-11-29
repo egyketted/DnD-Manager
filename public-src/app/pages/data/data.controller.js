@@ -1,7 +1,13 @@
 'use strict';
 require('angular');
 
-angular.module('DnDManagerApp') .controller('dataCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
+const ID = 'dataCtrl';
+
+module.exports = {
+    ID: ID
+};
+
+angular.module('DnDManagerApp').controller(ID, ['$scope', '$http', '$state', function($scope, $http, $state) {
     $http.get('http://localhost:3000/entities').then(function(result) {
         $scope.entities = result.data;
     });
