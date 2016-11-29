@@ -5,7 +5,7 @@
   "description": "It is a DnD manager",
   "author": "egyketted",
   "scripts": {
-    "gulp": "set NODE_ENV=dev && node node_modules/gulp/bin/gulp.js --color",
+    "gulp": "start node node_modules/json-server/bin/index.js --watch db.json && set NODE_ENV=dev && node node_modules/gulp/bin/gulp.js --color",
     "build": "set NODE_ENV=prod && npm install && node node_modules/gulp/bin/gulp.js build --color"
   },
   "devDependencies": {
@@ -30,5 +30,8 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
-  "buildnum": 95
+  "buildnum": 108,
+  "dependencies": {
+    "json-server": "^0.9.2"
+  }
 }
