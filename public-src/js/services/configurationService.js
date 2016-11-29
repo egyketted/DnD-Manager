@@ -1,4 +1,5 @@
 'use strict';
+require('angular');
 
 angular.module('DnDManagerApp').factory('configurationService', function() {
     var config = {};

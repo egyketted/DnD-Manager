@@ -1,3 +1,5 @@
+require('angular');
+
 angular.module('DnDManagerApp').factory('playersResourceService', ['baseResourceService', function(baseResourceService) {
     var resourceName = 'players';
 

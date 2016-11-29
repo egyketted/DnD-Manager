@@ -121,3 +121,6 @@ jspm_packages
 
 .jscsrc
 .jshintrc
+
+# minified javascript files
+*.min.js

@@ -1,4 +1,5 @@
 'use strict';
+require('angular');
 
 angular.module('DnDManagerApp').factory('baseResourceService', ['configurationService', '$http', function(configurationService, $http) {
     var service = {};

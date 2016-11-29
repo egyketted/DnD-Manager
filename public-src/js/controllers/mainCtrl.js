@@ -1,4 +1,5 @@
 'use strict';
+require('angular');
 
 angular.module('DnDManagerApp') .controller('mainCtrl', ['$state', '$scope', '$http', function($state, $scope, $http) {
 	console.log($state);
