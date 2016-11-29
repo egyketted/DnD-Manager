@@ -9,7 +9,8 @@ app.config(['$stateProvider', function($stateProvider) {
                 views: {
                     'content': {
                         templateUrl: 'app/main/main.html',
-                        controller: mainCtrl.ID
+                        controller: mainCtrl.ID,
+                        controllerAs: mainCtrl.ID
                     }
                 }
 		    });

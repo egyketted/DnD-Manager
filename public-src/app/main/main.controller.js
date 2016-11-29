@@ -8,10 +8,12 @@ module.exports = {
     ID: ID
 };
 
-MainController.$inject = ['$scope']
+MainController.$inject = ['$scope'];
 
 function MainController($scope) {
-    $scope.states = [
+    var vm = this;
+
+    vm.states = [
         { label: 'data', state: 'data'},
         { label: 'DM mode', state: 'dm-mode' },
         { label: 'Player mode', state: 'player-mode' }

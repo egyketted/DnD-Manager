@@ -2,7 +2,7 @@
     <div data-ng-include="'views/navbar.html'"></div>
 </div>
 <div class="main-content">
-    <div data-ng-repeat="state in states">
+    <div data-ng-repeat="state in mainCtrl.states">
         <a data-ui-sref="{{state.state}}">{{state.label}}</a>
     </div>
 </div>
