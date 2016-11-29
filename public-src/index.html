@@ -10,37 +10,16 @@
 				make it match with the apache2 alias (if any), otherwise app will be redirected instead of aliased
 		-->
 		<base href="/">
-		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="styles/font-awesome.min.css">
-		<link rel="stylesheet" href="styles/main.min.css">
-		<link href="images/favicon.ico" rel="icon">
-		<script src="node_modules/bootstrap-without-jquery/bootstrap3/bootstrap-without-jquery.min.js"></script>
-		<script src="node_modules/angular/angular.min.js"></script>
-		<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-		<script src="js/app.js"></script>
-		<!-- build:js js/main.min.js -->								<!-- this path is relative to base - this is where grunt creates js AND what it substitutes in output file's src attribute -->								<!-- this path is relative to base - this is where usemin-prepare finds js -->
-		<script src="js/controllers/mainCtrl.js"></script>
-		<!-- endbuild -->
-		<!-- build:js js/data.min.js -->								<!-- this path is relative to base - this is where grunt creates js AND what it substitutes in output file's src attribute -->								<!-- this path is relative to base - this is where usemin-prepare finds js -->
-		<script src="js/controllers/dataCtrl.js"></script>
-		<!-- endbuild -->
-		<!-- build:js js/skills.min.js -->								<!-- this path is relative to base - this is where grunt creates js AND what it substitutes in output file's src attribute -->								<!-- this path is relative to base - this is where usemin-prepare finds js -->
-		<script src="js/controllers/skillsFormCtrl.js"></script>
-		<!-- endbuild -->
-		<!-- build:js js/base.resource.min.js -->								<!-- this path is relative to base - this is where grunt creates js AND what it substitutes in output file's src attribute -->								<!-- this path is relative to base - this is where usemin-prepare finds js -->
-		<script src="js/services/baseResourceService.js"></script>
-		<!-- endbuild -->
-		<!-- build:js js/config.min.js -->								<!-- this path is relative to base - this is where grunt creates js AND what it substitutes in output file's src attribute -->								<!-- this path is relative to base - this is where usemin-prepare finds js -->
-		<script src="js/services/configurationService.js"></script>
-		<!-- endbuild -->
+		<!-- inject:css -->
+		<!-- endinject -->
 	</head>
 
 	<body>
-		<div ui-view="content" ng-app="DnDManagerApp">
-			<div  ng-controller="mainCtrl">
-				<div ng-include="'views/main.html'"></div>
-			</div>
+		<div ng-app="DnDManagerApp">
+            <div ui-view="content"></div>
 		</div>
+		<!-- inject:js -->
+		<!-- endinject -->
 	</body>
 
 </html>

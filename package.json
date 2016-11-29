@@ -1,29 +1,34 @@
 {
   "name": "DnDManager",
   "private": true,
-  "version": "0.0.1 - ALPHA",
+  "version": "0.0.1-ALPHA",
   "description": "It is a DnD manager",
   "author": "egyketted",
+  "scripts": {
+    "gulp": "set NODE_ENV=dev && node node_modules/gulp/bin/gulp.js --color",
+    "build": "set NODE_ENV=prod && npm install && node node_modules/gulp/bin/gulp.js build --color"
+  },
   "devDependencies": {
     "angular": "^1.5.8",
     "angular-ui-router": "^0.3.2",
     "bootstrap": "^3.3.7",
-    "grunt": "^1.0.1",
-    "grunt-build-number": "^1.0.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-jscs": "^3.0.1",
-    "grunt-sass": "^1.2.1",
-    "grunt-usemin": "^3.1.1",
-    "jit-grunt": "^0.10.0",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
-    "time-grunt": "^1.4.0"
+    "browser-sync": "^2.17.5",
+    "browserify": "^13.1.1",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-inject": "^4.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sequence": "^0.4.6",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-util": "^3.0.7",
+    "stream-series": "^0.1.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
-  "buildnum": "95"
+  "buildnum": 95
 }
