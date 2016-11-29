@@ -1,6 +1,7 @@
 require('angular');
 
 var baseResourceService = require('../services/base-resource.service');
+var app = require('../app').appModule;
 
 const ID = 'skillsResourceService';
 
@@ -19,3 +20,5 @@ function SkillsResourceService(baseResourceService) {
 
     return service;
 }
+
+app.service(ID, SkillsResourceService);
