@@ -11,58 +11,55 @@ module.exports = {
 BaseResourceService.$inject = ['configuration', '$http'];
 
 function BaseResourceService(configuration, $http) {
-    var service = {};
-
-    service.baseUrl = configuration.backend;
-    service.resourceName = '';
+    this.baseUrl = configuration.backend;
+    this.resourceName = '';
 
     function makeHttpRequest(requestData, successCB, errorCB) {
         $http(requestData).then(successCB, errorCB);
     }
 
-    service.create = function(resource, successCB, errorCB) {
+    this.create = function(resource, successCB, errorCB) {
         var requestData = {
             method: 'POST',
-            url: service.baseUrl + service.resourceName,
+            url: this.baseUrl + this.resourceName,
             data: resource
         };
         makeHttpRequest(requestData, successCB, errorCB);
     };
 
-    service.save= function(resource, successCB, errorCB) {
+    this.save = function(resource, successCB, errorCB) {
         var requestData = {
             method: 'PUT',
-            url: service.baseUrl + service.resourceName + '/' + resource.id,
+            url: this.baseUrl + this.resourceName + '/' + resource.id,
             data: resource
         };
+        console.log(requestData);
         makeHttpRequest(requestData, successCB, errorCB);
     };
 
-    service.delete = function(id, successCB, errorCB) {
+    this.delete = function(id, successCB, errorCB) {
         var requestData = {
             method: 'DELETE',
-            url: service.baseUrl + service.resourceName + '/' + id
+            url: this.baseUrl + this.resourceName + '/' + id
         };
         makeHttpRequest(requestData, successCB, errorCB);
     };
 
-    service.get = function(id, successCB, errorCB) {
+    this.get = function(id, successCB, errorCB) {
         var requestData = {
             method: 'GET',
-            url: service.baseUrl + service.resourceName + '/' + id
+            url: this.baseUrl + this.resourceName + '/' + id
         };
         makeHttpRequest(requestData, successCB, errorCB);
     };
 
-    service.getAll = function(successCB, errorCB) {
+    this.getAll = function(successCB, errorCB) {
         var requestData = {
             method: 'GET',
-            url: service.baseUrl + service.resourceName
+            url: this.baseUrl + this.resourceName
         };
         makeHttpRequest(requestData, successCB, errorCB);
     };
-
-    return service;
 }
 
-app.factory(ID, BaseResourceService);
+app.service(ID, BaseResourceService);

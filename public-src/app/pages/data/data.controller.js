@@ -1,13 +1,17 @@
 'use strict';
 require('angular');
 
+var app = require('../../app').appModule;
+
 const ID = 'dataCtrl';
 
 module.exports = {
     ID: ID
 };
 
-angular.module('DnDManagerApp').controller(ID, ['$scope', '$http', 'configuration', function($scope, $http, configuration) {
+DataController.$inject = ['$scope', '$http', 'configuration'];
+
+function DataController($scope, $http, configuration) {
     $http.get(configuration.backend + 'entities').then(function(result) {
         $scope.entities = result.data;
     });
@@ -36,4 +40,6 @@ angular.module('DnDManagerApp').controller(ID, ['$scope', '$http', 'configuratio
     $scope.cancel = function() {
         $scope.editing = false;
     }
-}]);
+}
+
+app.controller(ID, DataController);

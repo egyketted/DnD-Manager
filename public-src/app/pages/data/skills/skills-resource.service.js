@@ -1,7 +1,7 @@
 require('angular');
 
-var baseResourceService = require('../services/base-resource.service');
-var app = require('../app').appModule;
+var baseResourceService = require('../../../services/base-resource.service');
+var app = require('../../../app').appModule;
 
 const ID = 'skillsResourceService';
 

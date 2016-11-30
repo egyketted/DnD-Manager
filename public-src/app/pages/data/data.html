@@ -6,7 +6,7 @@
             <li ng-repeat="entity in entities" ng-click="refreshGrid(entity)">{{entity}}</li>
         </ul>
         <div ng-if="currentEntity">
-            <div class="create-entity-toolbar" ng-click="create()">
+            <div class="create-entity-toolbar" data-ui-sref="data.{{currentEntity.substr(0, currentEntity.length - 1)}}">
                 <i class="fa fa-plus-circle"></i>
                 <label>Add new {{currentEntity.substr(0, currentEntity.length - 1)}}</label>
             </div>
@@ -20,7 +20,5 @@
             </table>
         </div>
     </div>
-    <div class="data-content-edit" ng-if="editing">
-        <div ng-if="currentEntity" ng-include="'views/forms/' + currentEntity + '-form.html'"></div>
-    </div>
+    <div data-ui-view="skill"></div>
 </div>

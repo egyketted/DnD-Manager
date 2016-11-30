@@ -1,8 +1,17 @@
 'use strict';
 require('angular');
 
-angular.module('DnDManagerApp').controller('skillFormCtrl', ['$scope', '$http', 'skillsResourceService',
-    function($scope, $http, skillsResourceService) {
+const ID = 'skillFormCtrl';
+
+var app = require('../../../app').appModule;
+
+module.exports = {
+    ID: ID
+};
+
+SkillFormController.$inject = ['$scope', '$http', 'skillsResourceService'];
+
+function SkillFormController($scope, $http, skillsResourceService) {
         $scope.baseResource = angular.copy($scope.resource);
 
         $scope.create = function() {
@@ -26,4 +35,6 @@ angular.module('DnDManagerApp').controller('skillFormCtrl', ['$scope', '$http', 
         $scope.reset = function() {
             $scope.resource = $scope.baseResource;
         };
-}]);
+}
+
+app.controller(ID, SkillFormController);
