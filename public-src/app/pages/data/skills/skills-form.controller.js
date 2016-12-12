@@ -9,32 +9,37 @@ module.exports = {
     ID: ID
 };
 
-SkillFormController.$inject = ['$scope', '$http', 'skillsResourceService'];
+SkillFormController.$inject = ['$scope', 'baseResourceService', '$state', 'previousState', '$stateParams'];
 
-function SkillFormController($scope, $http, skillsResourceService) {
-        $scope.baseResource = angular.copy($scope.resource);
+function SkillFormController($scope, baseResourceService, $state, previousState, $stateParams) {
+    $scope.resource = angular.copy($stateParams.entity);
 
-        $scope.create = function() {
-            skillsResourceService.create($scope.resource, function(response) {
-                window.alert('Entity successfully created!');
-                $scope.cancel();
-            }, function(error) {
-                window.alert('Something went wrong!');
+    $scope.create = () => {
+        baseResourceService.create('skills', $scope.resource)
+            .then(response => {
+                $state.go(previousState.name, previousState.params);
+            })
+            .catch(error => {
+               console.log(error);
+        });
+    };
+
+    $scope.cancel = () => {
+        $state.go(previousState.name, previousState.params);
+    };
+
+    $scope.save = () => {
+        baseResourceService.save('skills', $scope.resource)
+            .then(response => {
+                $state.go(previousState.name, previousState.params);
+            }).catch(error => {
+                console.log(error);
             });
-        };
+    };
 
-        $scope.save = function() {
-            skillsResourceService.save($scope.resource, function(response) {
-                window.alert('Entity successfully saved!');
-                $scope.cancel();
-            }, function(error) {
-                window.alert('Something went wrong!');
-            });
-        };
-
-        $scope.reset = function() {
-            $scope.resource = $scope.baseResource;
-        };
+    $scope.reset = () => {
+        $scope.resource = angular.copy($stateParams.entity);
+    };
 }
 
 app.controller(ID, SkillFormController);
