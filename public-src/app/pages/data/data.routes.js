@@ -18,12 +18,30 @@ app.config(['$stateProvider', function($stateProvider) {
     })
     .state('data.skill', {
         url: '/skill',
+        params: {
+            entity: null
+        },
         views: {
             'skill': {
                 templateUrl: 'app/pages/data/skills/skills-form.html',
                 controller: skillsCtrl.ID,
                 controllerAs: skillsCtrl.ID
             }
+        },
+        resolve: {
+            // This will be solved before moving to the new state so the current one become the previous one
+            // upon successful navigation
+            previousState: [
+                "$state",
+                function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name,
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
+                }
+            ]
         }
     })
         .state('data.entity', {
