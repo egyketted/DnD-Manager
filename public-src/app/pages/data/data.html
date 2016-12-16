@@ -3,24 +3,9 @@
 <div class="data-manager">
     <div class="data-content-view">
         <ul>
-            <li ng-repeat="entity in entities" ng-click="refreshGrid(entity)">{{entity}}</li>
+            <li ng-repeat="entity in entities" data-ui-sref="data.entity({entity: '{{entity}}'})">{{entity}}</li>
         </ul>
-        <div ng-if="currentEntity">
-            <div class="create-entity-toolbar" ng-click="create()">
-                <i class="fa fa-plus-circle"></i>
-                <label>Add new {{currentEntity.substr(0, currentEntity.length - 1)}}</label>
-            </div>
-
-            <table class="data-grid col-sm-10">
-                <tr ng-repeat="element in gridData">
-                    <td class="element-data-field" ng-repeat="field in element">{{field}}</td>
-                    <td class="function edit" ng-click="edit(element)"><i class="fa fa-pencil"></i></td>
-                    <td class="function delete" ng-click="delete(element)"><i class="fa fa-trash"></i></td>
-                </tr>
-            </table>
-        </div>
+        <div data-ui-view="entity"></div>
     </div>
-    <div class="data-content-edit" ng-if="editing">
-        <div ng-if="currentEntity" ng-include="'views/forms/' + currentEntity + '-form.html'"></div>
-    </div>
+    <div data-ui-view="skill"></div>
 </div>

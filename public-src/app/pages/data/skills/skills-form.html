@@ -1,4 +1,4 @@
-<div ng-controller="skillFormCtrl" class="input-form-overlay">
+<div class="input-form-overlay">
     <div class="input-form">
         <div class="input-form-header">
             <div ng-include="'views/forms/base-form-header.html'"></div>
@@ -7,7 +7,7 @@
             <form>
                 <div class="col-sm-10">
                     <label>Id</label>
-                    <input type="text" enabled="false" ng-model="resource.id"/>
+                    <input type="text" enabled="false" ng-model="resource.id" disabled/>
                 </div>
                 <div class="col-sm-10">
                     <label>Name</label>
@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-sm-10">
                     <label>Description</label>
-                    <textarea ng-model="resource.description" ></textarea>
+                    <textarea ng-model="resource.description"></textarea>
                 </div>
             </form>
         </div>

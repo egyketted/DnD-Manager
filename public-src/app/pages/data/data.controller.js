@@ -1,39 +1,31 @@
 'use strict';
 require('angular');
 
+var app = require('../../app').appModule;
+
 const ID = 'dataCtrl';
 
 module.exports = {
     ID: ID
 };
 
-angular.module('DnDManagerApp').controller(ID, ['$scope', '$http', '$state', function($scope, $http, $state) {
-    $http.get('http://localhost:3000/entities').then(function(result) {
+DataController.$inject = ['$scope', '$http', 'configuration'];
+
+function DataController($scope, $http, configuration, baseResourceService, $stateParams) {
+    $http.get(configuration.backend + 'entities').then(function(result) {
         $scope.entities = result.data;
     });
 
     $scope.refreshGrid = function(entity) {
        $scope.currentEntity = entity;
-       $http.get('http://localhost:3000/' + entity).then(function(result) {
+       $http.get(configuration.backend + entity).then(function(result) {
            $scope.gridData = result.data;
        })
-    };
-
-    $scope.edit = function(entity) {
-        $scope.resource = entity;
-        $scope.editing = true;
-    };
-
-    $scope.create = function() {
-        $scope.resource = {id: undefined, name: '', description: ''};
-        $scope.editing = true;
-    };
-
-    $scope.delete = function(entity) {
-        $http.delete('http://localhost:3000/' + $scope.currentEntity + '/' + entity.id);
     };
 
     $scope.cancel = function() {
         $scope.editing = false;
     }
-}]);
+}
+
+app.controller(ID, DataController);

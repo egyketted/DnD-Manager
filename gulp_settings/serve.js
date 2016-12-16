@@ -12,6 +12,7 @@ const uglify = require('gulp-uglifyjs');
 const series = require('stream-series');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
+const _ = require('lodash');
 
 const onError = require('./error-handling').onError;
 
@@ -55,6 +56,7 @@ gulp.task('build:vendor', (cb) => {
 
 gulp.task('watch', () => {
     browserSync.init({
+        port: 4000,
         server: {
             baseDir: `${LAYOUT.dest}`
         }
@@ -65,7 +67,7 @@ gulp.task('watch', () => {
     gulp.watch(`${LAYOUT.source}/index.html`, ['index.html']);
     gulp.watch([`${LAYOUT.source}/**/*.html`, `!${LAYOUT.source}/index.html`], ['copy-html']);
     gulp.watch([`${LAYOUT.dest}/**/*.css`, `${LAYOUT.dest}/**/*.js`], ['index.html']);
-    gulp.watch(`${LAYOUT.dest}/**/*.*`).on('change', browserSync.reload);
+    gulp.watch([`${LAYOUT.dest}/**/*.*`]).on('change', _.debounce(browserSync.reload, 100));
 });
 
 gulp.task('build:app', (cb) => {
@@ -79,7 +81,8 @@ gulp.task('build:app', (cb) => {
         return new Promise(resolve => {
             let bundleFs = fs.createWriteStream(`./${LAYOUT.dest}/bundle.js`);
             bundleFs.on('open', () => {
-                b.bundle()
+                b.transform('babelify', { presets: ['es2015'] })
+                    .bundle()
                     .on('error', function (err) {
                         console.log(err.stack);
                         notify({

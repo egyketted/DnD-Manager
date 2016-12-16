@@ -37,7 +37,7 @@ Planned versions:
   * Browser available electric character sheet
   * No data validation, everything is up to the player
   * Little to no CSS
-  * FE: Angular 1 with grunt
+  * FE: Angular 1 with gulp
   * BE: JSON-server
   * Automation of the most simple things (DC, HP, Attack, Saves, etc.)
   * Administrator page, for adding feats, spells, skills, etc.

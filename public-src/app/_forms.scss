@@ -15,6 +15,9 @@
   .input-form-footer {
     margin-top: 30px;
     margin-bottom: 5px;
+    div:first-child {
+      margin-right: 20px;
+    }
   }
 
   label, input, textarea {
