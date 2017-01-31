@@ -5,7 +5,7 @@
   "description": "It is a DnD manager",
   "author": "egyketted",
   "scripts": {
-    "gulp": "start node node_modules/json-server/bin/index.js --watch db.json && set NODE_ENV=dev && node node_modules/gulp/bin/gulp.js --color",
+    "gulp": "set NODE_ENV=dev && node node_modules/gulp/bin/gulp.js --color",
     "build": "set NODE_ENV=prod && npm install && node node_modules/gulp/bin/gulp.js build --color"
   },
   "devDependencies": {
