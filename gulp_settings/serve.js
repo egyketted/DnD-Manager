@@ -1,3 +1,4 @@
+require('./json-server');
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const gulpSequence = require('gulp-sequence');
@@ -20,7 +21,7 @@ const VENDORS = ['angular', 'angular-ui-router'];
 
 const LAYOUT = require('../layout.json');
 
-gulp.task('serve', gulpSequence('increment-build-number', ['sass', 'build:app', 'build:vendor', 'copy-html', 'copy-fonts', 'copy-package.json'], 'index.html', 'watch'));
+gulp.task('serve', gulpSequence(['json-server', 'increment-build-number'], ['sass', 'build:app', 'build:vendor', 'copy-html', 'copy-fonts', 'copy-package.json'], 'index.html', 'watch'));
 
 gulp.task('build:vendor', (cb) => {
     const b = browserify({
