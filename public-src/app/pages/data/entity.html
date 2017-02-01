@@ -1,0 +1,12 @@
+<div class="create-entity-toolbar" data-ui-sref="data.{{entityCtrl.currentEntity}}">
+    <i class="fa fa-plus-circle"></i>
+    <label>Add new {{entityCtrl.currentEntity}}</label>
+</div>
+
+<table class="data-grid col-sm-10">
+    <tr ng-repeat="element in entityCtrl.gridData">
+        <td class="element-data-field" ng-repeat="field in element">{{field}}</td>
+        <td class="function edit" ng-click="entityCtrl.edit(element)"><i class="fa fa-pencil"></i></td>
+        <td class="function delete" ng-click="entityCtrl.delete(element)"><i class="fa fa-trash"></i></td>
+    </tr>
+</table>
