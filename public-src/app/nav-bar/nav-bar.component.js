@@ -4,17 +4,17 @@ var app = require('../app').appModule;
 
 const ID = 'appNavbar';
 
-appNavbar.$inject = [];
+let component = {
+    templateUrl: 'app/nav-bar/navbar.html',
+    controller: navBarController
+};
 
-function appNavbar() {
-    let directive = {
-        templateUrl: 'app/nav-bar/navbar.html',
-        link: link
-    };
-
-    function link($scope) {}
-
-    return directive;
+function navBarController() {
+    this.states = [
+        { label: 'data', state: 'main.data'},
+        { label: 'DM mode', state: 'dm-mode' },
+        { label: 'Player mode', state: 'player-mode' }
+    ];
 }
 
-app.directive(ID, appNavbar);
+app.component(ID, component);
