@@ -22,7 +22,7 @@ function EntityController(entities, $stateParams, baseResourceService, $state) {
     };
 
     this.edit = (entity) => {
-        $state.go(`data.${this.currentEntity}`, { entity: entity });
+        $state.go(`main.data.${this.currentEntity}`, { entity: entity });
     };
 }
 

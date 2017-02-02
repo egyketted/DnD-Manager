@@ -1,9 +1,8 @@
-<app-navbar></app-navbar>
 <h2>Data view</h2>
 <div class="data-manager">
     <div class="data-content-view">
         <ul>
-            <li ng-repeat="entity in entities" data-ui-sref="data.entity({entity: '{{entity}}'})">{{entity}}</li>
+            <li ng-repeat="entity in entities" data-ui-sref="main.data.entity({entity: '{{entity}}'})">{{entity}}</li>
         </ul>
         <div data-ui-view="entity"></div>
     </div>
