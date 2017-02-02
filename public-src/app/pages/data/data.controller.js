@@ -20,7 +20,7 @@ function DataController($scope, $http, configuration, baseResourceService, $stat
        $scope.currentEntity = entity;
        $http.get(configuration.backend + entity).then(function(result) {
            $scope.gridData = result.data;
-       })
+       });
     };
 
     $scope.cancel = function() {

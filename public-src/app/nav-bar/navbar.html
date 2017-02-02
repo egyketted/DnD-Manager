@@ -1,3 +1,5 @@
-<div  class="nav-bar">
-navigation
+<div class="nav-bar">
+    <div data-ng-repeat="state in $ctrl.states" class="nav-link">
+        <a data-ui-sref="{{state.state}}">{{state.label}}</a>
+    </div>
 </div>

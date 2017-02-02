@@ -1,5 +1,9 @@
-$backgroundColour : #c2c6b3;
+@import "../colors";
 
 body {
-	background-color: $backgroundColour;	
+	background-color: $background-color;	
+}
+
+app-footer {
+	display: inline-block;
 }

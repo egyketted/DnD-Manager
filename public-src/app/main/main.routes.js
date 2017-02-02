@@ -4,7 +4,7 @@ var app = require('../app').appModule;
 var mainCtrl = require('./main.controller');
 
 app.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('home', {
+    $stateProvider.state('main', {
         url: '/',
         views: {
             'content': {

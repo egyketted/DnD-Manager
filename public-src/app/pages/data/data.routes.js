@@ -7,16 +7,16 @@ var entityCtrl = require('./entity.controller');
 
 app.config(['$stateProvider', function($stateProvider) {
 
-    $stateProvider.state('data', {
-        url: '/data',
+    $stateProvider.state('main.data', {
+        url: 'data',
         views: {
-            'content': {
+            'main-container@main': {
                 templateUrl: 'app/pages/data/data.html',
                 controller: dataCtrl.ID
             }
         }
     })
-    .state('data.skill', {
+    .state('main.data.skill', {
         url: '/skill',
         params: {
             entity: null
@@ -44,7 +44,7 @@ app.config(['$stateProvider', function($stateProvider) {
             ]
         }
     })
-        .state('data.entity', {
+        .state('main.data.entity', {
             url: '/entity/:entity',
             resolve: {
                 entities: ['$http', 'configuration', '$stateParams', function ($http, configuration, $stateParams) {

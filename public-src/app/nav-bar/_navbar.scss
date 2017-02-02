@@ -1,0 +1,11 @@
+@import "../colors";
+
+.nav-bar {
+    padding: 20px;
+    display: flex;
+    background-color: $nav-bar-color;
+
+    .nav-link {
+        padding-right: 20px;
+    }
+}
